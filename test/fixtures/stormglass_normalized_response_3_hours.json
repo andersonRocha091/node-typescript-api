@@ -1,0 +1,22 @@
+[
+    {
+      "swellDirection":71.98,
+      "swellHeight":0.09,
+      "swellPeriod":4.46,
+      "time": "2024-04-05T00:00:00+00:00",
+      "waveDirection":109.38,
+      "waveHeight":1.06,
+      "windDirection":96.56,
+      "windSpeed":96.56
+      },
+    {
+      "swellDirection": 109.24,
+      "swellHeight": 0.13,
+      "swellPeriod":4.51,
+      "time": "2024-04-05T01:00:00+00:00",
+      "waveDirection":111.06,
+      "waveHeight":1.09,
+      "windDirection":96.14,
+      "windSpeed":96.56
+      }
+]
