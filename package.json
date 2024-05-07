@@ -9,7 +9,7 @@
     "start:dev": "ts-node-dev 'src/index.ts'",
     "lint": "eslint ./src ./test --ext .ts",
     "lint:fix": "eslint ./src ./test --ext .ts --fix",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "yarn test:unit && yarn test:fun",
     "test:fun": "jest --projects ./test --runInBand",
     "test:unit": "jest"
   },
@@ -42,7 +42,9 @@
   },
   "dependencies": {
     "@overnightjs/core": "^1.7.6",
+    "@types/bcrypt": "^5.0.2",
     "axios": "^1.6.8",
+    "bcrypt": "^5.1.1",
     "body-parser": "^1.20.2",
     "config": "^3.3.11",
     "express": "^4.19.2",

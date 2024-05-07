@@ -16,12 +16,10 @@ describe('Beach forecast functional test', () => {
     await beach.save();
   })
   it('Should return a forecast with just a few times', async() => {
-     
-    nock('https://api.stormglass.io:443', {"encodedQueryParams":true})
-      .defaultReplyHeaders({'access-control-allow-origin': '*'})
-      .get('/v2/weather/point')
-      .query({"params":"swellDirection%2CswellHeight%2CswellPeriod%2CwaveDirection%2CwaveHeight%2CwindDirection%2CwindSpeed","source":"noaa","end":"1712281267","lat":"-33.792726","lng":"151.289824"})
-      .reply(200, stormGlassWeather3HoursFixture);
+    nock('http://api.stormglass.io:80', {"encodedQueryParams":true})
+    .get('/v2/weather/point')
+    .query({"params":"swellDirection%2CswellHeight%2CswellPeriod%2CwaveDirection%2CwaveHeight%2CwindDirection%2CwindSpeed","source":"noaa","lat":"-33.792726","lng":"151.289824"})
+    .reply(200,stormGlassWeather3HoursFixture);
 
     const { body , status } = await globalThis.testRequest.get('/forecast');
     expect(status).toBe(200);
@@ -29,11 +27,10 @@ describe('Beach forecast functional test', () => {
   });
 
   it('Should return 500 if something goes wrong during the processing', async () => {
-    nock('https://api.stormglass.io:443', {"encodedQueryParams":true})
-    .defaultReplyHeaders({'access-control-allow-origin': '*'})
-    .get('/v2/weather/point')
-    .query({"params":"swellDirection%2CswellHeight%2CswellPeriod%2CwaveDirection%2CwaveHeight%2CwindDirection%2CwindSpeed","source":"noaa","end":"1712281267","lat":"-33.792726","lng":"151.289824"})
-    .replyWithError('Something went wrong');
+    nock('http://api.stormglass.io:80', {"encodedQueryParams":true})
+      .get('/v2/weather/point')
+      .query({"params":"swellDirection%2CswellHeight%2CswellPeriod%2CwaveDirection%2CwaveHeight%2CwindDirection%2CwindSpeed","source":"noaa","lat":"-33.792726","lng":"151.289824"})
+      .replyWithError('Something went wrong');
 
   const { status } = await globalThis.testRequest.get('/forecast');
   expect(status).toBe(500);

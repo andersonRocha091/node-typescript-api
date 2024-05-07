@@ -57,7 +57,7 @@ export class StormGlass {
   public async fetchPoints(lat: number, lng: number): Promise<ForecastPoint[]>{
     try{
       const response = await this.request.get<StormGlassForecastRespose>(`
-        ${stormGlassResourceConfig.get('apiUrl')}/weather/point?params=swellDirection,swellHeight,swellPeriod,waveDirection,waveHeight,windDirection,windSpeed&source=noaa&end=1712281267&lat=-33.792726&lng=151.289824
+        ${stormGlassResourceConfig.get('apiUrl')}/weather/point?params=swellDirection,swellHeight,swellPeriod,waveDirection,waveHeight,windDirection,windSpeed&source=noaa&lat=${lat}&lng=${lng}
       `,
       {
         headers:{
