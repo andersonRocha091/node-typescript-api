@@ -52,5 +52,8 @@
     "jsonwebtoken": "^9.0.2",
     "module-alias": "^2.2.3",
     "mongoose": "^8.3.2"
+  },
+  "engines": {
+    "node": ">=18.18.0 <19.0.0"
   }
 }
