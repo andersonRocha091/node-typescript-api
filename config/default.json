@@ -2,7 +2,8 @@
   "App": {
     "port": 3001,
     "database":{
-      "mongourl":"mongodb://localhost:27017/surf-forecast"
+      // "mongourl":"mongodb://localhost:27017/surf-forecast"
+      "mongourl":"mongodb+srv://anderson:Sstvtr09@cluster1.z57chqf.mongodb.net/?retryWrites=true&w=majority&appName=Cluster1"
     },
     "auth":{
       "key":"some-key",
